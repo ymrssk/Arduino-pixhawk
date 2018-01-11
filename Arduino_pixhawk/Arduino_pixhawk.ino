@@ -43,12 +43,11 @@ void loop() {
   int component_status = 10;
   mavlink_msg_sel_solar_plane_pack(system_id, component_id, &msg, battery_voltage, battery_current, battery_power, battery_remaining, sap_voltage, sap_current, sap_power, sap_str1_voltage, sap_str1_current, sap_str1_power, sap_str2_voltage, sap_str2_current, sap_str2_power, sap_str3_voltage, sap_str3_current, sap_str3_power, load_current, load_voltage, load_power, component_status);
   uint16_t len = mavlink_msg_to_send_buffer(buf, &msg);
-  for(int i;i<len;i++){
+  /*for(int i;i<len;i++){
   Serial.print(buf[i]);
   Serial.print(" ");
   }
   Serial.println("");
+  */
   MavSerial.write(buf,len);
-  Serial.write(buf,len);
-
 }
